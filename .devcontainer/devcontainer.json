@@ -3,5 +3,6 @@
     "image": "mcr.microsoft.com/dotnet/sdk:10.0",
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
-    }
+    },
+    "postCreateCommand": "dotnet restore"
 }
