@@ -4,13 +4,14 @@
 name: .NET
 
 permissions:
-  contents: read
+  contents: write
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main # Used for stable releases
+    tags:
+      - '*' # run on all tags being pushed
 
 jobs:
   build:
@@ -19,19 +20,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: Publish
-      run: dotnet publish -c Release -r win-x64 -p:PublishAot=true -p:DebugSymbols=false -o ./artifacts/publish
-    - name: Upload publish artifact
-      uses: actions/upload-artifact@v6
-      with:
-        name: publish-win-x64
-        path: ./artifacts/publish
-        if-no-files-found: error
+    - name: Build, Tests, Cover, Pack and Publish (on push tag)
+      shell: bash
+      run: |
+        dotnet tool install --global dotnet-releaser
+        dotnet-releaser run --github-token "${{secrets.GITHUB_TOKEN}}" dotnet-releaser.toml
