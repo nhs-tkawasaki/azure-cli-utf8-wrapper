@@ -28,4 +28,10 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish -c Release -r win-x64 -p:PublishAot=true
+      run: dotnet publish -c Release -r win-x64 -p:PublishAot=true -o ./artifacts/publish
+    - name: Upload publish artifact
+      uses: actions/upload-artifact@v6
+      with:
+        name: publish-win-x64
+        path: ./artifacts/publish
+        if-no-files-found: error
