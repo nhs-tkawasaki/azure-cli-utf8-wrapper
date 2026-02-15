@@ -13,3 +13,7 @@ rid = ["win-x64"]
 kinds = ["zip"]
 [nuget]
 publish = false
+[brew]
+publish = false
+[scoop]
+publish = false
