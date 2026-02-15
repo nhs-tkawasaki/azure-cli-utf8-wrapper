@@ -9,4 +9,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <PublishAot>true</PublishAot>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
 </Project>
