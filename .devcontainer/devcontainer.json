@@ -4,5 +4,5 @@
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
-    "postCreateCommand": "dotnet restore"
+    "postCreateCommand": "dotnet restore src"
 }
