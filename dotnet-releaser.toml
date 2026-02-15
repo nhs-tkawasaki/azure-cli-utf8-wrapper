@@ -6,6 +6,7 @@ project = "azure-cli-utf8-wrapper.csproj"
 [github]
 user = "nhs-tkawasaki"
 repo = "azure-cli-utf8-wrapper"
+version_prefix = "v"
 # Create zip files only for Windows platforms
 [[pack]]
 rid = ["win-x64"]
