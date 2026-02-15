@@ -45,6 +45,8 @@ static string? FindOriginAz()
     foreach (var d in pathDirs)
     {
         Console.WriteLine($"Checking {d} for az.cmd...");
+        if (string.IsNullOrWhiteSpace(d))
+            continue;
         if (string.Equals(Path.GetFullPath(d), Path.GetFullPath(selfDir), StringComparison.OrdinalIgnoreCase))
             continue;
 
