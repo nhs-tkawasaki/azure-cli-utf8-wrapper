@@ -1,0 +1,6 @@
+# configuration file for dotnet-releaser
+[msbuild]
+project = "azure-cli-utf8-wrapper.csproj"
+[github]
+user = "nhs-tkawasaki"
+repo = "azure-cli-utf8-wrapper"
