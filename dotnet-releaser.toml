@@ -1,6 +1,14 @@
 # configuration file for dotnet-releaser
+# Setting `custom` will make no default packs. You need to configure them manually
+profile = "custom"
 [msbuild]
 project = "azure-cli-utf8-wrapper.csproj"
 [github]
 user = "nhs-tkawasaki"
 repo = "azure-cli-utf8-wrapper"
+# Create zip files only for Windows platforms
+[[pack]]
+rid = ["win-x64"]
+kinds = ["zip"]
+[nuget]
+publish = false

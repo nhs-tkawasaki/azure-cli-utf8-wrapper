@@ -7,7 +7,6 @@
     <AssemblyName>az</AssemblyName>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
