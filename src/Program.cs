@@ -37,11 +37,14 @@ return proc.ExitCode;
 
 static string? FindOriginAz()
 {
+    Console.WriteLine($"Process path: {Environment.ProcessPath}");
     var selfDir = Path.GetDirectoryName(Environment.ProcessPath)!;
     var pathDirs = Environment.GetEnvironmentVariable("PATH")?.Split(Path.PathSeparator) ?? [];
 
+    Console.WriteLine($"Self directory: {selfDir}");
     foreach (var d in pathDirs)
     {
+        Console.WriteLine($"Checking {d} for az.cmd...");
         if (string.Equals(Path.GetFullPath(d), Path.GetFullPath(selfDir), StringComparison.OrdinalIgnoreCase))
             continue;
 
